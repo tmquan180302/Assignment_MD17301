@@ -1,25 +1,18 @@
 package com.example.assignment_md17301;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.assignment_md17301.Adapter.AdapterProduct;
 import com.example.assignment_md17301.Constants.NetworkConstants;
 import com.example.assignment_md17301.Interface.ApiService;
-import com.example.assignment_md17301.Interface.ServerResponeProduct;
-import com.example.assignment_md17301.model.Product;
+import com.example.assignment_md17301.Interface.ServerResponseProduct;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         ApiService apiService = retrofit.create(ApiService.class);
-        Call<ServerResponeProduct> call = apiService.getProduct();
-        call.enqueue(new Callback<ServerResponeProduct>() {
+        Call<ServerResponseProduct> call = apiService.getProduct();
+        call.enqueue(new Callback<ServerResponseProduct>() {
             @Override
-            public void onResponse(Call<ServerResponeProduct> call, Response<ServerResponeProduct> response) {
-                ServerResponeProduct resp = response.body();
+            public void onResponse(Call<ServerResponseProduct> call, Response<ServerResponseProduct> response) {
+                ServerResponseProduct resp = response.body();
                 if (resp.getList()!= null){
                     Toast.makeText(MainActivity.this, "Không có gì", Toast.LENGTH_SHORT).show();
                 }else {
@@ -68,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ServerResponeProduct> call, Throwable t) {
+            public void onFailure(Call<ServerResponseProduct> call, Throwable t) {
 
             }
         });

@@ -2,10 +2,18 @@ package com.example.assignment_md17301.model;
 
 public class User {
 
-    String name , email, password;
+    String _id, name, email, password;
 
     public String getName() {
         return name;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public void setName(String name) {

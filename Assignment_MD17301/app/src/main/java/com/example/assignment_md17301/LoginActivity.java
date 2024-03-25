@@ -46,8 +46,9 @@ public class LoginActivity extends AppCompatActivity {
                 String password = textInputLayoutPassword.getEditText().getText().toString().trim();
                 try {
                     submit(email,password);
-                }catch (Exception e){
 
+                }catch (Exception e){
+                    Toast.makeText(LoginActivity.this, "That bai", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
     private void submit(String email, String password) {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(NetworkConstants.URL)
+                .baseUrl("http://10.0.2.2:8080/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiService apiService = retrofit.create(ApiService.class);

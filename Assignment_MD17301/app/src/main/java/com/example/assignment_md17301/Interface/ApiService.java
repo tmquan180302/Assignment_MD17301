@@ -1,18 +1,9 @@
 package com.example.assignment_md17301.Interface;
 
-import com.example.assignment_md17301.Constants.NetworkConstants;
 import com.example.assignment_md17301.model.Product;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
@@ -34,10 +25,12 @@ public interface ApiService {
 
 
     @GET("getProduct/")
-    Call<ServerResponeProduct> getProduct();
+    Call<ServerResponseProduct> getProduct();
 
     @POST("addProduct/")
     Call<Product> addProduct(@Body Product product);
+
+
 
 
 }
